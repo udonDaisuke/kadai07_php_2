@@ -1,5 +1,8 @@
 <?php
+
+
 function userSQL($type = "login"){
+    session_start();
     require("./dbconnect.php");
 
     // https://qiita.com/ryo-futebol/items/5fb635199acc2fcbd3ff
@@ -33,6 +36,7 @@ function userSQL($type = "login"){
             echo "match";
             $_SESSION['user_id'] = $member['user_id'];
             $_SESSION['nickname'] = $member['nickname'];
+            echo $_SESSION['nickname'];
             $msg = 'ログインしました。';
             // $link = '<a href="index.php">ホーム</a>';
         } else {
